@@ -1,1 +1,28 @@
+mongo db atlas base:
 
+
+const { MongoClient } = require("mongodb");
+ 
+// Replace the following with your Atlas connection string                                                                                                                                        
+const url = "mongodb+srv://<your user name>:<your password>@<your cluster name>.n3hhzbn.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(url);
+
+async function run() {
+    try {
+        await client.connect();
+        console.log("Connected correctly to server");
+        
+        
+        ///your code goes here 
+        ///create database,collections and insert or find snips goes here
+        
+
+    } catch (err) {
+        console.log(err.stack);
+    }
+    finally {
+        await client.close();
+    }
+}
+
+run().catch(console.dir);
